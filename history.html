@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History | My Portfolio</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo-block">
+                <a href="./index.html" class="header__logo logo">Daniil</a>
+                <span class="header__date"></span>
+            </div>
+            <button class="burger" aria-label="Открыть меню">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="./index.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z" />
+                            </svg>
+                            Главная
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./about.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M480-240q-56 0-107 17.5T280-170v10h400v-10q-42-35-93-52.5T480-240Zm0-80q69 0 129 21t111 59v-560H240v560q51-38 111-59t129-21Zm0-160q-25 0-42.5-17.5T420-540q0-25 17.5-42.5T480-600q25 0 42.5 17.5T540-540q0 25-17.5 42.5T480-480ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80H240Zm240-320q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41Zm0-140Z" />
+                            </svg>
+                            Обо мне
+                        </a>
+                    </li>
+                    <li class="nav__item nav__item--dropdown">
+                        <a href="./interests.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M192-492 92-592q-12-12-12-28t12-28l100-100q12-12 28-12t28 12l100 100q12 12 12 28t-12 28L248-492q-12 12-28 12t-28-12ZM400-80q-17 0-28.5-11.5T360-120v-160q-50-4-99-11t-98-18q-17-4-27.5-19t-5.5-32q5-17 20.5-25t32.5-4q73 17 147.5 23t149.5 6q75 0 149.5-6T777-389q17-4 32.5 4t20.5 25q5 17-5.5 32T797-309q-49 11-98 18t-99 11v160q0 17-11.5 28.5T560-80H400ZM220-576l44-44-44-44-44 44 44 44Zm260-104q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35Zm0 280q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-360q17 0 28.5-11.5T520-800q0-17-11.5-28.5T480-840q-17 0-28.5 11.5T440-800q0 17 11.5 28.5T480-760Zm191 260-46-80q-5-9-5-20t5-20l46-80q5-10 14-15t20-5h90q11 0 20 5t14 15l46 80q5 9 5 20t-5 20l-46 80q-5 10-14 15t-20 5h-90q-11 0-20-5t-14-15Zm57-60h44l22-40-22-40h-44l-22 40 22 40Zm-508-60Zm260-180Zm270 200Z" />
+                            </svg>
+                            Интересы
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./education.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M242-249q-20-11-31-29.5T200-320v-192l-96-53q-11-6-16-15t-5-20q0-11 5-20t16-15l338-184q9-5 18.5-7.5T480-829q10 0 19.5 2.5T518-819l381 208q10 5 15.5 14.5T920-576v256q0 17-11.5 28.5T880-280q-17 0-28.5-11.5T840-320v-236l-80 44v192q0 23-11 41.5T718-249L518-141q-9 5-18.5 7.5T480-131q-10 0-19.5-2.5T442-141L242-249Zm238-203 274-148-274-148-274 148 274 148Zm0 241 200-108v-151l-161 89q-9 5-19 7.5t-20 2.5q-10 0-20-2.5t-19-7.5l-161-89v151l200 108Zm0-241Zm0 121Zm0 0Z" />
+                            </svg>
+                            Учёба
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./photo-album.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M360-280q-33 0-56.5-23.5T280-360v-440q0-33 23.5-56.5T360-880h195q17 0 28.5 11.5T595-840q0 17-11.5 28.5T555-800H360v408q45-42 101.5-65T580-480q61 0 118 23t102 65q1 1 0 0v-163q0-17 11.5-28.5T840-595q17 0 28.5 11.5T880-555v195q0 33-23.5 56.5T800-280H360Zm220-350Zm184-114-11 31q-2 6-7 9.5t-11 3.5q-11 0-17-8t-2-18l57-160q2-6 7.5-10t12.5-4h14q7 0 12.5 4t7.5 10l57 159q4 10-1.5 18.5T866-700q-7 0-12.5-4t-7.5-10l-10-30h-72Zm10-30h52l-26-82-26 82ZM580-400q-35 0-69 10t-63 30h264q-29-20-63-30t-69-10Zm0-340q46 0 78 32t32 78q0 46-32 78t-78 32q-46 0-78-32t-32-78q0-46 32-78t78-32Zm0 80q-13 0-21.5 8.5T550-630q0 13 8.5 21.5T580-600q13 0 21.5-8.5T610-630q0-13-8.5-21.5T580-660ZM222-81q-33 4-59.5-16T132-150L80-588q-4-33 16.5-58.5T150-677h2q17-3 30.5 9t13.5 30q0 15-10.5 26T160-598h-1l54 438 474-58q17-2 30 8t15 27q2 17-8 29.5T697-139L222-81Zm-9-79Z" />
+                            </svg>
+                            Фотоальбом
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./contact.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+                            </svg>
+                            Контакт
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./test.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="m221-313 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-228q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm0-320 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-548q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm339 353q-17 0-28.5-11.5T520-320q0-17 11.5-28.5T560-360h280q17 0 28.5 11.5T880-320q0 17-11.5 28.5T840-280H560Zm0-320q-17 0-28.5-11.5T520-640q0-17 11.5-28.5T560-680h280q17 0 28.5 11.5T880-640q0 17-11.5 28.5T840-600H560Z" />
+                            </svg>
+                            Тест
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./test.html" class="nav__link nav__link--active">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z" />
+                            </svg>
+                            История
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="history__main main">
+        <div class="history__container container">
+            <h1>История просмотра</h1>
+
+            <h2>История текущего сеанса</h2>
+            <table id="sessionHistory" border="1">
+                <thead>
+                    <tr>
+                        <th>Страница</th>
+                        <th>Количество посещений</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <h2>История за всё время</h2>
+            <table id="globalHistory" border="1">
+                <thead>
+                    <tr>
+                        <th>Страница</th>
+                        <th>Количество посещений</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

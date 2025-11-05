@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моё портфолио</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-950 text-gray-100 font-sans">
+    <!-- Hero -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+        <img src="https://via.placeholder.com/150" alt="Фото"
+            class="rounded-full w-40 h-40 shadow-lg border-4 border-purple-500">
+        <h1 class="mt-6 text-4xl md:text-6xl font-bold tracking-tight">Твоё Имя</h1>
+        <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-2xl">
+            Фронтенд-разработчик • Создаю стильные интерфейсы и удобные веб-приложения
+        </p>
+        <div class="mt-6 flex gap-4">
+            <a href="#projects" class="px-6 py-3 rounded-2xl bg-purple-600 hover:bg-purple-700 transition">Проекты</a>
+            <a href="#contacts"
+                class="px-6 py-3 rounded-2xl border border-purple-600 hover:bg-purple-600/20 transition">Связаться</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8">Обо мне</h2>
+        <p class="text-lg text-gray-400 leading-relaxed">
+            Привет! Я начинающий фронтенд-разработчик, увлечён созданием удобных и красивых интерфейсов.
+            Люблю работать с <span class="text-purple-400">JavaScript</span>,
+            <span class="text-purple-400">React</span> и
+            <span class="text-purple-400">TailwindCSS</span>.
+            Постоянно учусь новым технологиям и стремлюсь писать чистый, поддерживаемый код.
+        </p>
+        <p class="mt-6 text-lg text-gray-400 leading-relaxed">
+            В свободное время изучаю новые инструменты, развиваю личные проекты и делюсь опытом.
+            Моя цель — создавать веб-приложения, которые решают реальные задачи и приносят пользу людям.
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 px-6 max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-10">Навыки</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-gray-900 p-6 rounded-2xl shadow hover:shadow-purple-500/30 transition">HTML & CSS</div>
+            <div class="bg-gray-900 p-6 rounded-2xl shadow hover:shadow-purple-500/30 transition">JavaScript</div>
+            <div class="bg-gray-900 p-6 rounded-2xl shadow hover:shadow-purple-500/30 transition">React</div>
+            <div class="bg-gray-900 p-6 rounded-2xl shadow hover:shadow-purple-500/30 transition">TailwindCSS</div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 px-6 bg-gray-900">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10 text-center">Проекты</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition">
+                    <img src="https://via.placeholder.com/600x300" alt="Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Название проекта</h3>
+                        <p class="mt-2 text-gray-400">Краткое описание проекта и какие технологии использовались.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-[1.02] transition">
+                    <img src="https://via.placeholder.com/600x300" alt="Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Название проекта</h3>
+                        <p class="mt-2 text-gray-400">Краткое описание проекта и какие технологии использовались.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts -->
+    <section id="contacts" class="py-20 px-6 max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-10">Контакты</h2>
+        <p class="text-gray-400 mb-6">Буду рад сотрудничеству и новым проектам!</p>
+        <div class="flex justify-center gap-6 text-lg">
+            <a href="mailto:youremail@example.com" class="hover:text-purple-400">Email</a>
+            <a href="https://github.com/" class="hover:text-purple-400">GitHub</a>
+            <a href="https://linkedin.com/" class="hover:text-purple-400">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-gray-500 border-t border-gray-800">
+        © 2025 Твоё Имя. Все права защищены.
+    </footer>
+</body>
+
+</html>

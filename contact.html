@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | My Portfolio</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<header class="header">
+        <div class="header__container container">
+            <div class="header__logo-block">
+                <a href="./index.html" class="header__logo logo">Daniil</a>
+                <span class="header__date"></span>
+            </div>
+            <button class="burger" aria-label="Открыть меню">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="./index.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z" />
+                            </svg>
+                            Главная
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./about.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M480-240q-56 0-107 17.5T280-170v10h400v-10q-42-35-93-52.5T480-240Zm0-80q69 0 129 21t111 59v-560H240v560q51-38 111-59t129-21Zm0-160q-25 0-42.5-17.5T420-540q0-25 17.5-42.5T480-600q25 0 42.5 17.5T540-540q0 25-17.5 42.5T480-480ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80H240Zm240-320q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41Zm0-140Z" />
+                            </svg>
+                            Обо мне
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./interests.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M192-492 92-592q-12-12-12-28t12-28l100-100q12-12 28-12t28 12l100 100q12 12 12 28t-12 28L248-492q-12 12-28 12t-28-12ZM400-80q-17 0-28.5-11.5T360-120v-160q-50-4-99-11t-98-18q-17-4-27.5-19t-5.5-32q5-17 20.5-25t32.5-4q73 17 147.5 23t149.5 6q75 0 149.5-6T777-389q17-4 32.5 4t20.5 25q5 17-5.5 32T797-309q-49 11-98 18t-99 11v160q0 17-11.5 28.5T560-80H400ZM220-576l44-44-44-44-44 44 44 44Zm260-104q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35Zm0 280q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-360q17 0 28.5-11.5T520-800q0-17-11.5-28.5T480-840q-17 0-28.5 11.5T440-800q0 17 11.5 28.5T480-760Zm191 260-46-80q-5-9-5-20t5-20l46-80q5-10 14-15t20-5h90q11 0 20 5t14 15l46 80q5 9 5 20t-5 20l-46 80q-5 10-14 15t-20 5h-90q-11 0-20-5t-14-15Zm57-60h44l22-40-22-40h-44l-22 40 22 40Zm-508-60Zm260-180Zm270 200Z" />
+                            </svg>
+                            Интересы
+                        </a>
+                    </li>
+                    <li class="nav__item nav__item--dropdown">
+                        <a href="./education.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M242-249q-20-11-31-29.5T200-320v-192l-96-53q-11-6-16-15t-5-20q0-11 5-20t16-15l338-184q9-5 18.5-7.5T480-829q10 0 19.5 2.5T518-819l381 208q10 5 15.5 14.5T920-576v256q0 17-11.5 28.5T880-280q-17 0-28.5-11.5T840-320v-236l-80 44v192q0 23-11 41.5T718-249L518-141q-9 5-18.5 7.5T480-131q-10 0-19.5-2.5T442-141L242-249Zm238-203 274-148-274-148-274 148 274 148Zm0 241 200-108v-151l-161 89q-9 5-19 7.5t-20 2.5q-10 0-20-2.5t-19-7.5l-161-89v151l200 108Zm0-241Zm0 121Zm0 0Z" />
+                            </svg>
+                            Учёба
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./photo-album.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M360-280q-33 0-56.5-23.5T280-360v-440q0-33 23.5-56.5T360-880h195q17 0 28.5 11.5T595-840q0 17-11.5 28.5T555-800H360v408q45-42 101.5-65T580-480q61 0 118 23t102 65q1 1 0 0v-163q0-17 11.5-28.5T840-595q17 0 28.5 11.5T880-555v195q0 33-23.5 56.5T800-280H360Zm220-350Zm184-114-11 31q-2 6-7 9.5t-11 3.5q-11 0-17-8t-2-18l57-160q2-6 7.5-10t12.5-4h14q7 0 12.5 4t7.5 10l57 159q4 10-1.5 18.5T866-700q-7 0-12.5-4t-7.5-10l-10-30h-72Zm10-30h52l-26-82-26 82ZM580-400q-35 0-69 10t-63 30h264q-29-20-63-30t-69-10Zm0-340q46 0 78 32t32 78q0 46-32 78t-78 32q-46 0-78-32t-32-78q0-46 32-78t78-32Zm0 80q-13 0-21.5 8.5T550-630q0 13 8.5 21.5T580-600q13 0 21.5-8.5T610-630q0-13-8.5-21.5T580-660ZM222-81q-33 4-59.5-16T132-150L80-588q-4-33 16.5-58.5T150-677h2q17-3 30.5 9t13.5 30q0 15-10.5 26T160-598h-1l54 438 474-58q17-2 30 8t15 27q2 17-8 29.5T697-139L222-81Zm-9-79Z" />
+                            </svg>
+                            Фотоальбом
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./contact.html" class="nav__link nav__link--active">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+                            </svg>
+                            Контакт
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./test.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="m221-313 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-228q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm0-320 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-548q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm339 353q-17 0-28.5-11.5T520-320q0-17 11.5-28.5T560-360h280q17 0 28.5 11.5T880-320q0 17-11.5 28.5T840-280H560Zm0-320q-17 0-28.5-11.5T520-640q0-17 11.5-28.5T560-680h280q17 0 28.5 11.5T880-640q0 17-11.5 28.5T840-600H560Z" />
+                            </svg>
+                            Тест
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="contact__main main">
+        <div class="contact__container container">
+            <h1 class="contact__title title">Контакт</h1>
+            <div class="contact__form-block">
+                <form action="mailto:dannytka4enko@gmail.com" method="post" enctype="text/plain" class="contact__form form" novalidate>
+                    <label for="name" class="contact__label">ФИО:</label>
+                    <input type="text" id="name" name="name" placeholder="Иванов Иван Иванович" class="contact__input input" required>
+
+                    <label for="gender" class="contact__label">Пол:</label>
+                    <select id="gender" name="gender" class="contact__input input" required>
+                        <option value="" disabled selected>Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+
+                    <label for="birthdate" class="contact__label">Дата рождения:</label>
+                    <input type="text" id="birthdate" name="birthdate" class="contact__input input" placeholder="01.01.2000" required>
+
+                    <label for="telephone" class="contact__label">Телефон:</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="+7 (999) 999-99-99"
+                        class="contact__input input" required>
+
+                    <label for="email" class="contact__label">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="your-email@example.com"
+                        class="contact__input input" required>
+
+                    <label for="message" class="contact__label">Сообщение:</label>
+                    <textarea id="message" name="message" placeholder="Введите ваше сообщение" class="contact__textarea textarea"
+                        required></textarea>
+
+                    <div class="contact__button-block button-block">
+                        <button type="submit" class="contact__button button">Отправить</button>
+                        <button type="reset" class="contact__button button">Очистить</button>
+                    </div>
+
+                </form>
+
+                <div class="calendar">
+                    <div class="calendar__header">
+                        <select name="month-select" id="month-select" class="calendar__month-select"></select>
+                        <select name="year-select" id="year-select" class="calendar__year-select"></select>
+                    </div>
+                    <div class="calendar__body">
+                        <div class="calendar__weekdays">
+                            <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+                        </div>
+                        <div class="calendar__dates"></div>
+                    </div>
+                </div>
+
+                <div class="contact__side-block">
+                    <img src="./assets/images/avatar-main.jpg" alt="contact" class="contact__image">
+                    <div class="contact__social-block">
+                        <ul class="contact__social-list">
+                            <li class="contact__social-item">
+                                <a href="https://web.telegram.org" class="contact__social-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
+                                        height="24px" class="contact__social-icon">
+                                        <path
+                                            d="M 20.302734 2.984375 C 20.013769 2.996945 19.748583 3.080055 19.515625 3.171875 C 19.300407 3.256634 18.52754 3.5814726 17.296875 4.0976562 C 16.06621 4.61384 14.435476 5.2982348 12.697266 6.0292969 C 9.2208449 7.4914211 5.314238 9.1361259 3.3125 9.9785156 C 3.243759 10.007156 2.9645852 10.092621 2.65625 10.328125 C 2.3471996 10.564176 2.0039062 11.076462 2.0039062 11.636719 C 2.0039062 12.088671 2.2295201 12.548966 2.5019531 12.8125 C 2.7743861 13.076034 3.0504903 13.199244 3.28125 13.291016 L 3.28125 13.289062 C 4.0612776 13.599827 6.3906939 14.531938 6.9453125 14.753906 C 7.1420423 15.343433 7.9865895 17.867278 8.1875 18.501953 L 8.1855469 18.501953 C 8.3275588 18.951162 8.4659791 19.243913 8.6582031 19.488281 C 8.7543151 19.610465 8.8690398 19.721184 9.0097656 19.808594 C 9.0637596 19.842134 9.1235454 19.868148 9.1835938 19.892578 C 9.191962 19.896131 9.2005867 19.897012 9.2089844 19.900391 L 9.1855469 19.894531 C 9.2029579 19.901531 9.2185841 19.911859 9.2363281 19.917969 C 9.2652427 19.927926 9.2852873 19.927599 9.3242188 19.935547 C 9.4612233 19.977694 9.5979794 20.005859 9.7246094 20.005859 C 10.26822 20.005859 10.601562 19.710937 10.601562 19.710938 L 10.623047 19.695312 L 12.970703 17.708984 L 15.845703 20.369141 C 15.898217 20.443289 16.309604 21 17.261719 21 C 17.829844 21 18.279025 20.718791 18.566406 20.423828 C 18.853787 20.128866 19.032804 19.82706 19.113281 19.417969 L 19.115234 19.416016 C 19.179414 19.085834 21.931641 5.265625 21.931641 5.265625 L 21.925781 5.2890625 C 22.011441 4.9067171 22.036735 4.5369631 21.935547 4.1601562 C 21.834358 3.7833495 21.561271 3.4156252 21.232422 3.2226562 C 20.903572 3.0296874 20.591699 2.9718046 20.302734 2.984375 z M 19.908203 5.1738281 C 19.799442 5.7198576 17.33401 18.105877 17.181641 18.882812 L 13.029297 15.041016 L 10.222656 17.414062 L 11 14.375 C 11 14.375 16.362547 8.9468594 16.685547 8.6308594 C 16.945547 8.3778594 17 8.2891719 17 8.2011719 C 17 8.0841719 16.939781 8 16.800781 8 C 16.675781 8 16.506016 8.1197812 16.416016 8.1757812 C 15.272368 8.8887854 10.401283 11.664685 8.0058594 13.027344 C 7.8617016 12.96954 5.6973962 12.100458 4.53125 11.634766 C 6.6055146 10.76177 10.161156 9.2658083 13.472656 7.8730469 C 15.210571 7.142109 16.840822 6.4570977 18.070312 5.9414062 C 19.108158 5.5060977 19.649538 5.2807035 19.908203 5.1738281 z M 17.152344 19.025391 C 17.152344 19.025391 17.154297 19.025391 17.154297 19.025391 C 17.154252 19.025621 17.152444 19.03095 17.152344 19.03125 C 17.153615 19.024789 17.15139 19.03045 17.152344 19.025391 z" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="contact__social-item">
+                                <a href="https://vk.com" class="contact__social-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
+                                        height="24px" class="contact__social-icon">
+                                        <path
+                                            d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M17.515,16h-1.309	c-0.496,0-0.653-0.491-1.518-1.5c-0.75-0.875-1.138-1-1.329-1C13.091,13.5,13,13.566,13,13.967v1.486C13,15.786,12.914,16,12.075,16	c-1.385,0-2.95-0.938-4.137-2.563C6.3,11.196,6,9.247,6,8.887C6,8.687,6.063,8.5,6.445,8.5h1.321c0.331,0,0.458,0.147,0.585,0.534	C8.938,11,9.813,12.5,10.258,12.5c0.165,0,0.242-0.08,0.242-0.52v-1.812C10.449,9.234,10,9.154,10,8.82	c0-0.161,0.106-0.32,0.31-0.32h2.324C12.914,8.5,13,8.66,13,9.007v2.593C13,11.893,13.224,12,13.312,12	c0.165,0,0.32,0.008,0.625-0.313c0.94-1.108,1.756-2.787,1.756-2.787C15.783,8.7,15.935,8.5,16.266,8.5h1.309	c0.293,0,0.417,0.131,0.425,0.313c0.003,0.063-0.008,0.133-0.031,0.208c-0.165,0.8-1.857,3.176-1.844,3.176	c-0.072,0.123-0.12,0.211-0.125,0.304c-0.005,0.088,0.031,0.18,0.125,0.31c0.139,0.2,0.443,0.568,0.75,0.94	c0.555,0.671,1,1.375,1.097,1.663c0.021,0.078,0.03,0.149,0.028,0.212C17.993,15.872,17.818,16,17.515,16z" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="contact__social-item">
+                                <a href="https://tiktok.com" class="contact__social-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
+                                        height="24px" class="contact__social-icon">
+                                        <path
+                                            d="M 6 3 C 4.3550302 3 3 4.3550302 3 6 L 3 18 C 3 19.64497 4.3550302 21 6 21 L 18 21 C 19.64497 21 21 19.64497 21 18 L 21 6 C 21 4.3550302 19.64497 3 18 3 L 6 3 z M 12 7 L 14 7 C 14 8.005 15.471 9 16 9 L 16 11 C 15.395 11 14.668 10.734156 14 10.285156 L 14 14 C 14 15.654 12.654 17 11 17 C 9.346 17 8 15.654 8 14 C 8 12.346 9.346 11 11 11 L 11 13 C 10.448 13 10 13.449 10 14 C 10 14.551 10.448 15 11 15 C 11.552 15 12 14.551 12 14 L 12 7 z" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="contact__social-item">
+                                <a href="https://pinterest.com" class="contact__social-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
+                                        height="24px" class="contact__social-icon">
+                                        <path
+                                            d="M12,2C6.477,2,2,6.477,2,12c0,4.237,2.636,7.855,6.356,9.312c-0.087-0.791-0.167-2.005,0.035-2.868 c0.182-0.78,1.172-4.971,1.172-4.971s-0.299-0.599-0.299-1.484c0-1.391,0.806-2.428,1.809-2.428c0.853,0,1.265,0.641,1.265,1.408 c0,0.858-0.546,2.141-0.828,3.329c-0.236,0.996,0.499,1.807,1.481,1.807c1.777,0,3.143-1.874,3.143-4.579 c0-2.394-1.72-4.068-4.177-4.068c-2.845,0-4.515,2.134-4.515,4.34c0,0.859,0.331,1.781,0.744,2.282 c0.082,0.099,0.093,0.186,0.069,0.287c-0.076,0.316-0.244,0.995-0.277,1.134c-0.043,0.183-0.145,0.222-0.334,0.133 c-1.249-0.582-2.03-2.408-2.03-3.874c0-3.154,2.292-6.052,6.608-6.052c3.469,0,6.165,2.472,6.165,5.776 c0,3.447-2.173,6.22-5.189,6.22c-1.013,0-1.966-0.527-2.292-1.148c0,0-0.502,1.909-0.623,2.378 c-0.226,0.868-0.835,1.958-1.243,2.622C9.975,21.843,10.969,22,12,22c5.522,0,10-4.478,10-10S17.523,2,12,2z" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="contact__social-item">
+                                <a href="https://linkedin.com" class="contact__social-link">
+                                    <?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        width="24px" height="24px" class="contact__social-icon">
+                                        <path
+                                            d="M19,3H5C3.895,3,3,3.895,3,5v14c0,1.105,0.895,2,2,2h14c1.105,0,2-0.895,2-2V5C21,3.895,20.105,3,19,3z M9,17H6.477v-7H9 V17z M7.694,8.717c-0.771,0-1.286-0.514-1.286-1.2s0.514-1.2,1.371-1.2c0.771,0,1.286,0.514,1.286,1.2S8.551,8.717,7.694,8.717z M18,17h-2.442v-3.826c0-1.058-0.651-1.302-0.895-1.302s-1.058,0.163-1.058,1.302c0,0.163,0,3.826,0,3.826h-2.523v-7h2.523v0.977 C13.93,10.407,14.581,10,15.802,10C17.023,10,18,10.977,18,13.174V17z" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+    </main>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
