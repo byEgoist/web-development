@@ -1,7 +1,7 @@
 import { initMenu } from './modules/menu.js';
 import { trackPageVisit } from './modules/historyTracker.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+$(document).ready(function() {
     initMenu();
 
     // Получаем имя текущего файла (например, "photo-album.html")

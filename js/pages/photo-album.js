@@ -13,47 +13,80 @@ export default function initPhotoAlbum() {
         "Caius Volturi", "Marcus Volturi", "Jane Volturi"
     ];
 
-    const photoTable = document.querySelector('.album__gallery');
+    const photoTable = $('.album__gallery')[0];
     if (!photoTable) return;
 
-    for (let i = 0; i < fotos.length; i++) {
-        const photoCard = document.createElement('div');
-        photoCard.classList.add('album__photo-card');
-        photoCard.innerHTML = `
-            <img src="../assets/images/photo-album/${fotos[i]}" 
-                alt="${titles[i]}" 
-                title="${titles[i]}" 
-                class="album__image">
-            <h6 class="album__photo-title">${titles[i]}</h6>
-            `;
-        photoTable.appendChild(photoCard);
-    }
+    fotos.forEach((foto, index) => {
+        const img = $('<img>', {
+            src: `./assets/images/photo-album/${foto}`,
+            alt: titles[index],
+            title: titles[index],
+            class: 'album__image'
+        });
+        const title = $('<h6>', {
+            text: titles[index],
+            class: 'album__photo-title'
+        });
+        const card = $('<div>', { class: 'album__photo-card' });
+        card.append(img, title);
+        $(photoTable).append(card);
+    });
 
-    photoTable.addEventListener('click', (event) => {
+    $('.album__image').on('click', (event) => {
         const target = event.target;
-        if (target.classList.contains('album__image')) {
-            const overlay = document.createElement('div');
-            overlay.classList.add('album__overlay');
-            overlay.innerHTML = `
+        if (target) {
+            const overlay = $('<div>', { class: 'album__overlay' });
+            overlay.html(`
                 <div class="album__overlay-content">
                     <img src="${target.src}" 
                         alt="${target.alt}" 
                         title="${target.title}" 
                         class="album__overlay-image">
                     <span class="album__overlay-close">&times;</span>
+                    <div class="album__overlay-arrows">
+                        <span id="arrow-left" class="album__overlay-arrow album__overlay-arrow--left">&lt;</span>
+                        <span id="arrow-right" class="album__overlay-arrow album__overlay-arrow--right">&gt;</span>
+                    </div>
                 </div>
-            `;
-            document.body.appendChild(overlay);
+            `);
+            $('body').append(overlay);
         }
-    });
 
-    document.body.addEventListener('click', (event) => {
-        const target = event.target;
-        if (target.classList.contains('album__overlay-close') || target.classList.contains('album__overlay')) {
-            const overlay = target.closest('.album__overlay');
-            if (overlay) {
-                overlay.remove();
+        const images = [];
+        $('.album__gallery img').each((index, img) => {
+            images.push($(img).attr('src'));
+        });
+
+        $('body').on('click', '#arrow-left, #arrow-right', (event) => {
+            const currentImg = $('.album__overlay-image');
+            const currentSrc = currentImg.attr('src');
+            const images = $('.album__gallery img').map((i, el) => $(el).attr('src')).get();
+            let currentIndex = images.indexOf(currentSrc);
+
+            if ($(event.target).is('#arrow-left')) {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+            } else {
+                currentIndex = (currentIndex + 1) % images.length;
             }
-        }
+
+            // Анимация смены изображения
+            currentImg.fadeOut(200, function () {
+                $(this)
+                    .attr('src', images[currentIndex])
+                    .attr('alt', titles[currentIndex])
+                    .attr('title', titles[currentIndex])
+                    .fadeIn(200);
+            });
+        });
+
+        $('body').on('click', (event) => {
+            const target = event.target;
+            if (target.classList.contains('album__overlay-close') || target.classList.contains('album__overlay')) {
+                const overlay = $(target).closest('.album__overlay');
+                if (overlay) {
+                    overlay.remove();
+                }
+            }
+        });
     });
 }

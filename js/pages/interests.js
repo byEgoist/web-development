@@ -2,36 +2,28 @@
 // списков с использованием JavaScript-функции с переменным числом аргументов.
 
 function createList(className, listTitle, ...items) {
-    let interestsContainer = document.querySelector('.interests__container');
+    let interestsContainer = $('.interests__container')[0];
     if (!interestsContainer) return;
-    const section = document.createElement('section');
-    section.classList.add(className, 'interests__section');
-    section.id = className;
+    const section = $('<section>', { class: `interests__section interests__section--${className}`, id: className })[0];
 
-    let linksList = document.querySelector('.interests__links-list');
+    let linksList = $('.interests__links-list')[0];
     if (linksList) {
-        const linkItem = document.createElement('li');
-        linkItem.classList.add('interests__links-list-item');
+        const linkItem = $('<li>', { class: 'interests__links-list-item' })[0];
         linkItem.innerHTML = `<a href="#${className}" class="interests__link">${listTitle}</a>`;
-        linksList.appendChild(linkItem);
+        $(linksList).append(linkItem);
     }
 
-    const title = document.createElement('h2');
-    title.classList.add('interests__subtitle');
-    title.textContent = listTitle;
-    section.appendChild(title);
+    const title = $('<h2>', { class: 'interests__subtitle', text: listTitle })[0];
+    $(section).append(title);
 
-    const list = document.createElement('ol');
-    list.classList.add('interests__numeric-list');
+    const list = $('<ol>', { class: 'interests__numeric-list' })[0];
     items.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.classList.add('interests__numeric-list-item');
-        listItem.textContent = item;
-        list.appendChild(listItem);
+        const listItem = $('<li>', { class: 'interests__numeric-list-item', text: item })[0];
+        $(list).append(listItem);
     });
-    section.appendChild(list);
+    $(section).append(list);
 
-    interestsContainer.appendChild(section);
+    $(interestsContainer).append(section);
 }
 
 export default function initInterests() {

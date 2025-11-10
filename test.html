@@ -91,6 +91,16 @@
                             Тест
                         </a>
                     </li>
+                    <li class="nav__item">
+                        <a href="./history.html" class="nav__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#E2E8F0" class="nav__icon">
+                                <path
+                                    d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z" />
+                            </svg>
+                            История
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -103,7 +113,7 @@
                 <div class="test__question-block">
                     <h3 class="test__question">1. Опишите свои действия в случае возникновения пожара.</h3>
                     <textarea name="question-1" id="question-1" placeholder="Ваш ответ..."
-                        class="test__textarea textarea" required></textarea>
+                        class="test__textarea textarea" data-popover="Введите ответ" required></textarea>
                 </div>
                 <div class="test__question-block">
                     <h3 class="test__question">2. Что следует сделать в первую очередь при сильном пищевом отравлении с
@@ -111,19 +121,19 @@
                     <ul class="test__answers-list">
                         <li class="test__answers-item">
                             <label class="test__label">
-                                <input type="radio" name="question-2" class="test__radio radio" required>
+                                <input type="radio" name="question-2" class="test__radio radio" data-popover="Выберите ответ" required>
                                 Выпить молока для нейтрализации токсинов
                             </label>
                         </li>
                         <li class="test__answers-item">
                             <label class="test__label">
-                                <input type="radio" name="question-2" class="test__radio radio" required>
+                                <input type="radio" name="question-2" class="test__radio radio" data-popover="Выберите ответ" required>
                                 Вызвать рвоту
                             </label>
                         </li>
                         <li class="test__answers-item">
                             <label class="test__label">
-                                <input type="radio" name="question-2" class="test__radio radio" required>
+                                <input type="radio" name="question-2" class="test__radio radio" data-popover="Выберите ответ" required>
                                 Вызвать скорую помощь и начать пить воду небольшими глотками
                             </label>
                         </li>
@@ -132,7 +142,7 @@
                 <div class="test__question-block">
                     <h3 class="test__question">3. При утечке бытового газа в квартире запрещается пользоваться
                         электроприборами, включая выключатель света</h3>
-                    <select name="question-3" id="question-3" class="test__input input" required>
+                    <select name="question-3" id="question-3" class="test__input input" data-popover="Выберите вариант ответа" required>
                         <option value="" disabled selected>Выберите вариант ответа</option>
                         <option value="true">Верно</option>
                         <option value="false">Неверно</option>
@@ -141,12 +151,12 @@
                 <div class="test__question-block">
                     <label for="name" class="test__label">ФИО:</label>
                     <input type="text" id="name" name="name" placeholder="Иванов Иван Иванович"
-                        class="test__input input" required>
+                        class="test__input input" data-popover="Введите ФИО" required>
                 </div>
 
                 <div class="test__question-block">
                     <label for="group" class="test__label">Группа:</label>
-                    <select name="group" id="group" class="test__input input" required>
+                    <select name="group" id="group" class="test__input input" data-popover="Выберите вашу группу" required>
                         <option value="" disabled selected>Выберите вашу группу</option>
                         <optgroup label="ИВТ">
                             <option value="ИВТ/б-23-1-о">ИВТ/б-23-1-о</option>
@@ -173,6 +183,7 @@
             </form>
         </div>
     </main>
+    <script src="js/jquery-3.7.1.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>
 

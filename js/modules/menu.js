@@ -1,48 +1,52 @@
 export function initMenu() {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.header__nav');
+
+    const burger = $('.burger');
+    const nav = $('.header__nav');
 
     if (!burger || !nav) return;
 
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.classList.toggle('active');
+     $(burger).on('click', function() {
+        $(nav).toggleClass('active');
+        $(burger).toggleClass('active');
     });
 
-    document.querySelectorAll('.nav__link').forEach(link => {
-        if (link.classList.contains('nav__link--active')) return;
-        link.addEventListener('mouseenter', () => {
-            link.querySelector('.nav__icon').style.fill = getComputedStyle(document.documentElement).getPropertyValue('--color-hover');
-            link.querySelector('.nav__icon').style.transition = 'fill 0.3s';
-            link.querySelector('.nav__icon').style.transform = 'scale(1.2) rotate(5deg)';
+
+    $('.nav__link').each(function() {
+        if ($(this).hasClass('nav__link--active')) return;
+        $(this).on('mouseenter', function() {
+            $(this).find('.nav__icon').css({
+                fill: getComputedStyle(document.documentElement).getPropertyValue('--color-hover'),
+                transition: 'fill 0.3s',
+                transform: 'scale(1.2) rotate(5deg)'
+            });
         });
-        link.addEventListener('mouseleave', () => {
-            link.querySelector('.nav__icon').style.fill = getComputedStyle(document.documentElement).getPropertyValue('--color-primary');
-            link.querySelector('.nav__icon').style.transform = 'scale(1) rotate(0deg)';
+        $(this).on('mouseleave', function() {
+            $(this).find('.nav__icon').css({
+                fill: getComputedStyle(document.documentElement).getPropertyValue('--color-primary'),
+                transform: 'scale(1) rotate(0deg)'
+            });
         });
     });
 
-    const dropdownItem = document.querySelector('.nav__item--dropdown');
-    if (!dropdownItem) return;
+    const dropdownItem = $('.nav__item--dropdown');
+    if (dropdownItem.length === 0) return;
 
-    const dropdown = document.createElement('div');
-    dropdown.classList.add('nav__dropdown-block');
-    dropdown.innerHTML = `
+    const dropdown = $('<div>', { class: 'nav__dropdown-block' }).html(`
             <ul class="nav__dropdown-list">
                 <li class="nav__dropdown-item"><a href="interests.html#hobbies" class='nav__link'>Хобби</a></li>
                 <li class="nav__dropdown-item"><a href="interests.html#books" class='nav__link'>Книги</a></li>
                 <li class="nav__dropdown-item"><a href="interests.html#music" class='nav__link'>Музыка</a></li>
                 <li class="nav__dropdown-item"><a href="interests.html#movies" class='nav__link'>Фильмы</a></li>
             </ul>
-        `;
-    dropdownItem.appendChild(dropdown);
+        `);
+    dropdownItem.append(dropdown);
 
-    dropdownItem.addEventListener('mouseenter', () => {
-        dropdown.style.display = 'block';
+    dropdownItem.on('mouseenter', () => {
+        $(dropdown).css('display', 'block');
     });
 
-    dropdownItem.addEventListener('mouseleave', () => {
-        dropdown.style.display = 'none';
+    dropdownItem.on('mouseleave', () => {
+        $(dropdown).css('display', 'none');
     });
 
     const months = [
@@ -51,7 +55,7 @@ export function initMenu() {
     ];
 
     function updateDateTime() {
-        if (!document.querySelector(".header__date")) return;
+        if ($(".header__date").length === 0) return;
         const now = new Date();
         const day = now.getDate();
         const month = months[now.getMonth()];
@@ -59,7 +63,7 @@ export function initMenu() {
 
         const dateStr = `${day} ${month} ${year}`;
 
-        document.querySelector(".header__date").textContent = `${dateStr}`;
+        $(".header__date").text(`${dateStr}`);
     }
 
     updateDateTime();

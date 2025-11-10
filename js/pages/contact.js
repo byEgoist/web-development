@@ -3,11 +3,11 @@ import { initFormValidation } from '../modules/form-check.js';
 export default function initContactPage() {
     initFormValidation();
 
-    const calendar = document.querySelector('.calendar');
-    const dobInput = document.getElementById('birthdate');
-    const monthSelect = document.getElementById('month-select');
-    const yearSelect = document.getElementById('year-select');
-    const calendarDays = document.querySelector('.calendar__dates');
+    const calendar = $('.calendar')[0];
+    const dobInput = $('#birthdate')[0];
+    const monthSelect = $('#month-select')[0];
+    const yearSelect = $('#year-select')[0];
+    const calendarDays = $('.calendar__dates')[0];
 
     const months = [
         "January", "February", "March", "April", "May", "June",
@@ -16,17 +16,13 @@ export default function initContactPage() {
 
     // Заполняем селекторы месяца и года
     months.forEach((m, i) => {
-        const opt = document.createElement('option');
-        opt.value = i;
-        opt.textContent = m;
-        monthSelect.appendChild(opt);
+        const opt = $('<option>', { value: i, text: m });
+        $(monthSelect).append(opt);
     });
 
     for (let y = 1900; y <= new Date().getFullYear(); y++) {
-        const opt = document.createElement('option');
-        opt.value = y;
-        opt.textContent = y;
-        yearSelect.appendChild(opt);
+        const opt = $('<option>', { value: y, text: y });
+        $(yearSelect).append(opt);
     }
 
     let selectedDate = new Date();
@@ -43,40 +39,44 @@ export default function initContactPage() {
 
         // Добавляем пустые div'ы перед первым днем месяца
         for (let i = 0; i < firstDay; i++) {
-            const empty = document.createElement('div');
-            calendarDays.appendChild(empty);
+            const emptyDiv = $('<div>', { class: 'calendar__date calendar__date--empty' });
+            $(calendarDays).append(emptyDiv);
         }
 
         // Добавляем дни
         for (let d = 1; d <= lastDate; d++) {
-            const dayDiv = document.createElement('div');
-            dayDiv.classList.add('calendar__date');
-            dayDiv.textContent = d;
-            dayDiv.addEventListener('click', () => {
+            const dayDiv = $('<div>', { class: 'calendar__date', text: d });
+            dayDiv.on('click', () => {
                 const day = String(d).padStart(2, '0');
                 const mon = String(month + 1).padStart(2, '0');
-                dobInput.value = `${day}.${mon}.${year}`;
-                calendar.classList.remove('calendar--active');
+                const dateStr = `${day}.${mon}.${year}`;
+                $(dobInput).val(dateStr);
+                $(calendar).removeClass('calendar--active');
             });
-            calendarDays.appendChild(dayDiv);
+            $(calendarDays).append(dayDiv);
         }
     }
 
-    monthSelect.addEventListener('change', renderCalendar);
-    yearSelect.addEventListener('change', renderCalendar);
+    $(monthSelect).on('change', () => {
+        renderCalendar();
+    });
+
+    $(yearSelect).on('change', () => {
+        renderCalendar();
+    });
 
     // При фокусе на поле открываем календарь
-    dobInput.addEventListener('focus', () => {
-        calendar.classList.add('calendar--active');
-        monthSelect.value = selectedDate.getMonth();
-        yearSelect.value = selectedDate.getFullYear();
+    $(dobInput).on('focus', () => {
+        $(calendar).addClass('calendar--active');
+        $(monthSelect).val(selectedDate.getMonth());
+        $(yearSelect).val(selectedDate.getFullYear());
         renderCalendar();
     });
 
     // При клике вне календаря — закрываем
-    document.addEventListener('click', (e) => {
-        if (!calendar.contains(e.target) && e.target !== dobInput) {
-            calendar.classList.remove('calendar--active');
+    $(document).on('click', (e) => {
+        if (!$(e.target).closest('.calendar, #birthdate').length) {
+            $(calendar).removeClass('calendar--active');
         }
     });
 }

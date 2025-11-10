@@ -1,8 +1,3 @@
-// 3. Добавить на страницах «Контакт» и «Тест по дисциплине «…»» 
-// функции проверки заполненности форм. В случае если какое-либо из полей
-// формы осталось незаполненным при нажатии на кнопку отправить, 
-// вывести сообщение об ошибке и установить фокус на незаполненный элемент.
-
 // Кастомные проверки по name поля
 const customValidators = {
     name: (value) => {
@@ -72,125 +67,223 @@ const customValidators = {
 };
 
 function validateField(field) {
-    const name = field.name;
-    const value = field.value.trim();
+    const $field = $(field);
+    const name = $field.attr('name');
+    const value = $field.val();
 
-    removeErrorMessage(field);
+    removeErrorMessage($field);
 
-    if (field.type === 'radio') {
-        const radios = field.form.querySelectorAll(`input[name="${name}"]`);
-        const anyChecked = Array.from(radios).some(r => r.checked);
+    if ($field.attr('type') === 'radio') {
+        const $radios = $(`input[name="${name}"]`);
+        const anyChecked = $radios.is(':checked');
 
-        const fieldParent = field.closest('.test__answers-list') || field.parentElement;
-        const existingError  = fieldParent.parentElement.querySelector('.error-message');
+        const $fieldParent = $field.closest('.test__answers-list').length ?
+            $field.closest('.test__answers-list') :
+            $field.parent();
+        const $existingError = $fieldParent.parent().find('.error-message');
 
         if (!anyChecked) {
-            if (!existingError) {
-                addErrorMessage(fieldParent, 'Пожалуйста, выберите один из вариантов');
+            if (!$existingError.length) {
+                addErrorMessage($fieldParent, 'Пожалуйста, выберите один из вариантов');
             }
-            markInvalid(radios);
+            markInvalid($radios);
             return false;
         }
 
-        markValid(radios);
-        if (existingError) {
-            existingError.remove();
-        }
+        markValid($radios);
+        $existingError.remove();
         return true;
     }
 
     // Проверка на обязательность
-    if (field.hasAttribute('required') && value === '') {
-        addErrorMessage(field, 'Это поле обязательно для заполнения');
-        markInvalid(field);
+    if ($field.attr('required') && (!value || value.toString().trim() === '')) {
+        addErrorMessage($field, 'Это поле обязательно для заполнения');
+        markInvalid($field);
         return false;
     }
+
+    // Если поле не обязательно и пустое - пропускаем кастомные проверки
+    if (!value || value.toString().trim() === '') {
+        markValid($field);
+        return true;
+    }
+
+    const stringValue = value.toString().trim();
 
     // Кастомная проверка
     const validator = customValidators?.[name];
     if (typeof validator === 'function') {
-        const result = validator(value);
+        const result = validator(stringValue);
         if (result !== true) {
-            addErrorMessage(field, result);
-            markInvalid(field);
+            addErrorMessage($field, result);
+            markInvalid($field);
             return false;
         }
     }
 
-    markValid(field);
+    markValid($field);
     return true;
 }
 
 // Служебные функции 
-function addErrorMessage(element, text) {
-    const msg = document.createElement('p');
-    msg.className = 'error-message';
-    msg.textContent = text;
-    element.insertAdjacentElement('afterend', msg);
+function addErrorMessage($element, text) {
+    const $msg = $('<p>', {
+        class: 'error-message',
+        text: text
+    });
+    $element.after($msg);
 }
 
-function removeErrorMessage(field) {
-    const msg = field.nextElementSibling;
-    if (msg && msg.classList.contains('error-message')) msg.remove();
+function removeErrorMessage($field) {
+    $field.next('.error-message').remove();
 }
 
-function markInvalid(fields) {
-    if (fields instanceof NodeList || Array.isArray(fields)) {
-        fields.forEach(f => f.classList.add('invalid'));
-    } else {
-        fields.classList.add('invalid');
-    }
+function markInvalid($fields) {
+    $fields.addClass('invalid').removeClass('valid');
 }
 
-function markValid(fields) {
-    if (fields instanceof NodeList || Array.isArray(fields)) {
-        fields.forEach(f => {
-            f.classList.remove('invalid');
-            f.classList.add('valid');
-        });
-    } else {
-        fields.classList.remove('invalid');
-        fields.classList.add('valid');
-    }
+function markValid($fields) {
+    $fields.removeClass('invalid').addClass('valid');
 }
+
+
+const $modalOverlay = $('#modal-overlay');
+
+function openModal() {
+    $modalOverlay.fadeIn(200).css('display', 'flex');
+    // $('body').css('filter', 'blur(5px)');
+}
+
+function closeModal() {
+    $modalOverlay.fadeOut(200);
+    $('body').css('filter', '');
+}
+
 
 // Инициализация валидации формы
 export function initFormValidation() {
-    const form = document.querySelector('form');
-    if (!form) return;
+    const $form = $('form');
+    const $confirmBtn = $('#confirm-btn');
+    const $cancelBtn = $('#cancel-btn');
+    let actionType = null; // "submit" или "reset"
 
-    form.addEventListener('submit', e => {
+    if (!$form.length) return;
+
+    $form.on('submit', function (e) {
         e.preventDefault();
         let allValid = true;
-        let firstInvalid = null;
+        let $firstInvalid = null;
 
-        form.querySelectorAll('[required]').forEach(field => {
-            const isValid = validateField(field);
+        $form.find('[required]').each(function () {
+            const isValid = validateField(this);
             if (!isValid) {
                 allValid = false;
-                if (!firstInvalid) firstInvalid = field;
+                if (!$firstInvalid) {
+                    $firstInvalid = $(this);
+                }
             }
         });
 
-        if (!allValid && firstInvalid) {
-            firstInvalid.focus();
+        if (!allValid && $firstInvalid) {
+            $firstInvalid.trigger('focus');
         } else {
-            form.submit();
+            actionType = 'submit';
+            $('.modal-message').text('Вы уверены, что хотите отправить форму?');
+            openModal();
         }
     });
 
-    form.addEventListener('input', e => {
-        const field = e.target;
-        if (field.matches('[required], [name]')) validateField(field);
+    $form.on('input', '[required], [name]', function () {
+        validateField(this);
     });
 
-    form.addEventListener('blur', e => {
-        const field = e.target;
-        if (field.matches('[required], [name]')) validateField(field);
-    }, true);
+    $form.on('blur', '[required], [name]', function () {
+        validateField(this);
+    });
 
-    form.addEventListener('reset', () => {
-        form.querySelectorAll('.error-message').forEach(msg => msg.remove());
-        form.querySelectorAll('.invalid, .valid').forEach(f => f.classList.remove('invalid', 'valid'));
+    $form.on('reset', function (e) {
+        e.preventDefault();
+        actionType = 'reset';
+        $('.modal-message').text('Вы уверены, что хотите сбросить форму?');
+        openModal();
+    });
+
+    $confirmBtn.on('click', function () {
+        if (actionType === 'submit') {
+            $form.off('submit').submit(); // отправляем форму
+        } else if (actionType === 'reset') {
+            $form.find('.error-message').remove();
+            $form.find('.invalid, .valid').removeClass('invalid valid');
+
+            $form[0].reset(); // сбрасываем поля
+        }
+        closeModal();
+    });
+
+    // === Отмена ===
+    $cancelBtn.on('click', function () {
+        closeModal();
+    });
+
+    // === Закрытие при клике на фон ===
+    $modalOverlay.on('click', function (e) {
+        if ($(e.target).is($modalOverlay)) {
+            closeModal();
+        }
+    });
+
+    // === Закрытие по клавише ESC ===
+    $(document).on('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    const M = 2;
+    let hideTimeout = null;
+
+    $('body').on('mouseenter', '[data-popover]', function (event) {
+        const $field = $(this);
+        const message = $field.data('popover');
+        if (!message) return;
+
+        $('.popover').remove();
+
+        clearTimeout(hideTimeout);
+        const popover = $('<div class="popover"></div>').text(message);
+        $('body').append(popover);
+        // Ставим в позицию курсора с небольшим сдвигом
+        popover.css({
+            top: event.pageY + 12,
+            left: event.pageX + 12,
+            opacity: 0
+        }).animate({ opacity: 1 }, 150);
+    });
+
+    // Обновляем позицию при движении мыши
+    $('body').on('mousemove', '[data-popover]', function (event) {
+        const popover = $('.popover');
+        if (popover.length) {
+            popover.css({
+                top: event.pageY + 12,
+                left: event.pageX + 12
+            });
+        }
+    });
+
+    $form.on('mouseleave', '[data-popover]', function () {
+        clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => {
+            $('.popover').fadeOut(200, function () { $(this).remove(); });
+        }, M * 1000);
+    });
+
+    // Если курсор зашёл на сам popover — отменяем скрытие
+    $('body').on('mouseenter', '.popover', function () {
+        clearTimeout(hideTimeout);
+    }).on('mouseleave', '.popover', function () {
+        hideTimeout = setTimeout(() => {
+            $(this).fadeOut(200, function () { $(this).remove(); });
+        }, M * 1000);
     });
 }
